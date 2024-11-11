@@ -1,0 +1,84 @@
+<div class="burger-form-container">
+    <h2>Actualizar Burger</h2>
+    
+    <form [formGroup]="burgerForm" (ngSubmit)="onSubmit()" class="burger-form">
+      <div class="form-group">
+        <label for="name">Nombre *</label>
+        <input 
+          id="name"
+          type="text"
+          formControlName="name"
+          [class.invalid]="burgerForm.get('name')?.invalid && burgerForm.get('name')?.touched"
+        >
+        <div class="error-message" *ngIf="burgerForm.get('name')?.invalid && burgerForm.get('name')?.touched">
+          <span *ngIf="burgerForm.get('name')?.errors?.['required']">El nombre es obligatorio</span>
+          <span *ngIf="burgerForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Descripción *</label>
+        <textarea 
+          id="description"
+          formControlName="description"
+          rows="4"
+          [class.invalid]="burgerForm.get('description')?.invalid && burgerForm.get('description')?.touched"
+        ></textarea>
+        <div class="error-message" *ngIf="burgerForm.get('description')?.invalid && burgerForm.get('description')?.touched">
+          <span *ngIf="burgerForm.get('description')?.errors?.['required']">Description is required</span>
+          <span *ngIf="burgerForm.get('description')?.errors?.['minlength']">Se requiere descripción</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Ingredientes *</label>
+        <div class="ingredients-container">
+          <div 
+            *ngFor="let ingredient of availableIngredients"
+            class="ingredient-chip"
+            [class.selected]="isIngredientSelected(ingredient)"
+            (click)="onIngredientToggle(ingredient)"
+          >
+            {{ ingredient }}
+          </div>
+        </div>
+        <div class="error-message" *ngIf="burgerForm.get('ingredients')?.invalid && burgerForm.get('ingredients')?.touched">
+          <span>Por favor seleccione al menos un ingrediente</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Precio (S/) *</label>
+        <input 
+          id="price"
+          type="number"
+          step="0.01"
+          formControlName="price"
+          [class.invalid]="burgerForm.get('price')?.invalid && burgerForm.get('price')?.touched"
+        >
+        <div class="error-message" *ngIf="burgerForm.get('price')?.invalid && burgerForm.get('price')?.touched">
+          <span *ngIf="burgerForm.get('price')?.errors?.['required']">Se requiere precione ingrediente</span>
+          <span *ngIf="burgerForm.get('price')?.errors?.['min']">El precio debe ser mayor que S/0</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="image">Imagen de Burger</label>
+        <div class="image-upload-container">
+          <img *ngIf="imagePreview" [src]="imagePreview" alt="Burger preview" class="image-preview">
+          <input 
+            id="image"
+            type="file"
+            accept="image/*"
+            (change)="onImageChange($event)"
+            formControlName="image"
+          >
+        </div>
+      </div>
+  
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="burgerForm.invalid">Guardar</button>
+      </div>
+    </form>
+  </div>

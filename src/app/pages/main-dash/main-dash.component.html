@@ -1,0 +1,65 @@
+<div class="dashboard">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Ventas de hoy</h3>
+            <p class="stat">S/1,234</p>
+            <span class="trend positive">↑ 12%</span>
+        </div>
+        <div class="stat-card">
+            <h3>Pedidos hoy</h3>
+            <p class="stat">48</p>
+            <span class="trend positive">↑ 8%</span>
+        </div>
+        <div class="stat-card">
+            <h3>Más populares</h3>
+            <p class="stat">Felicidad clásica</p>
+            <span class="trend">23 ordenes</span>
+        </div>
+        <div class="stat-card">
+            <h3>Orden promedio</h3>
+            <p class="stat">S/25.70</p>
+            <span class="trend negative">↓ 3%</span>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="recent-orders">
+            <h2>Ordenes Recientes</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of recentOrders">
+                            <td>#{{order.id}}</td>
+                            <td>{{order.items}}</td>
+                            <td>${{order.total}}</td>
+                            <td><span [class]="'status ' + order.status.toLowerCase()">
+                                    {{order.status}}
+                                </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="popular-items">
+            <h2>Más Populares</h2>
+            <div class="popular-grid">
+                <div class="popular-card" *ngFor="let item of popularItems">
+                    <img [src]="item.image" [alt]="item.name">
+                    <div class="popular-info">
+                        <h3>{{item.name}}</h3>
+                        <p>{{item.orders}} ordenes hoy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

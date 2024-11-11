@@ -1,0 +1,9 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed"  (click)="toggleSidebar()">
+    <nav class="nav-menu">
+        <a *ngFor="let item of menuItems" [class.active]="activeItem === item.id" (click)="setActiveItem(item.id)"
+            class="nav-item" routerLink="{{item.path}}">
+            <span class="icon">{{item.icon}}</span>
+            <span class="text">{{item.label}}</span>
+        </a>
+    </nav>
+</aside>

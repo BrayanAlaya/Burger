@@ -1,0 +1,73 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    color: #666;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.slogan {
+    color: white;
+}
+
+.title {
+    color: white;
+}
+
+.section {
+    padding: 3rem 0;
+    background-color: #dedede;
+}
+
+.burger-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+}
+
+.burger-card {
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+.price {
+    display: block;
+    padding: 1rem;
+    font-weight: bold;
+    color: var(--primary);
+}

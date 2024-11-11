@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="dashboard-header">
+      <h1>Gestión de hamburguesas</h1>
+      <a class="btn btn-success"  routerLink="/dash/create">
+        Crear nueva hamburguesa
+      </a>
+    </div>
+
+    <div class="burger-grid">
+      <div class="burger-card" *ngFor="let burger of burgers">
+        <img 
+          [src]="burger.imageUrl || 'https://via.placeholder.com/300x200?text=No+Image'" 
+          [alt]="burger.name"
+          class="burger-image"
+        >
+        <div class="burger-info">
+          <h2 class="burger-name">{{ burger.name }}</h2>
+          <p class="burger-description">{{ burger.description }}</p>
+          <p class="burger-price">${{ burger.price.toFixed(2) }}</p>
+        </div>
+        <div class="burger-actions">
+          <a class="btn btn-primary" routerLink="/dash/update">
+            Editar
+          </a>
+          <button class="btn btn-danger" >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

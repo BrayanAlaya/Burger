@@ -1,0 +1,70 @@
+<div class="payment-container">
+    <div class="total-amount">
+        <h2>Monto total</h2>
+        <span class="amount">${{ totalAmount.toFixed(2) }}</span>
+    </div>
+
+    <div class="payment-methods">
+        <h3>Seleccione método de pago</h3>
+        <div class="method-buttons">
+            <button [class.active]="selectedMethod === 'credit'" (click)="selectMethod('credit')" class="method-button">
+                <span class="icon">💳</span>
+                Targeta de Crédito
+            </button>
+            <button [class.active]="selectedMethod === 'debit'" (click)="selectMethod('debit')" class="method-button">
+                <span class="icon">💳</span>
+                Targeta de debito
+            </button>
+            <button [class.active]="selectedMethod === 'yape'" (click)="selectMethod('yape')" class="method-button">
+                <span class="icon">📱</span>
+                Yape
+            </button>
+        </div>
+    </div>
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" *ngIf="selectedMethod !== ''">
+        <div class="card-details" *ngIf="selectedMethod === 'credit' || selectedMethod === 'debit'">
+            <div class="form-group">
+                <label for="cardNumber">Número de targeta</label>
+                <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="1234 5678 9012 3456"
+                    maxlength="19">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="expiry">Fecha de expiración</label>
+                    <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY" maxlength="5">
+                </div>
+
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="password" id="cvv" formControlName="cvv" placeholder="123" maxlength="3">
+                </div>
+            </div>
+        </div>
+
+        <div class="yape-details" *ngIf="selectedMethod === 'yape'">
+            <div class="form-group">
+                <label for="yapeId">Teléfono</label>
+                <input type="tel" id="yapeId" formControlName="yapeId" placeholder="Enter your Yape phone number">
+            </div>
+            <div class="qr-placeholder">
+                <p>Escanea Código QR para pagar con Yape</p>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="cancel-btn" (click)="resetForm()">Cancel</button>
+            <button type="submit" class="pay-btn" [disabled]="paymentForm.invalid || isProcessing">
+                {{ isProcessing ? 'Procesando...' : 'Pagar Ahora' }}
+            </button>
+        </div>
+    </form>
+
+    <div class="payment-message" *ngIf="paymentMessage">
+        <div [class]="'message ' + paymentStatus">
+            {{ paymentMessage }}
+        </div>
+    </div>
+</div>
