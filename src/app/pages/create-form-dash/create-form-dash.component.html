@@ -42,7 +42,7 @@
             {{ ingredient }}
           </div>
         </div>
-        <div class="error-message" *ngIf="burgerForm.get('ingredients')?.invalid && !burgerForm.get('ingredients')?.touched">
+        <div class="error-message" *ngIf="burgerForm.get('ingredients')?.invalid">
           <span>Por favor seleccione al menos un ingrediente</span>
         </div>
       </div>
