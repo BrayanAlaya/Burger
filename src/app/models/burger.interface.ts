@@ -8,14 +8,9 @@ export interface Burger {
 }
 
 export const AVAILABLE_INGREDIENTS = [
-  'Beef Patty',
-  'Chicken Patty',
   'Lettuce',
   'Tomato',
   'Cheese',
   'Bacon',
   'Onions',
-  'Pickles',
-  'Mushrooms',
-  'Avocado'
 ];

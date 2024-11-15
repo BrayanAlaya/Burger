@@ -2,7 +2,6 @@
     <div class="container">
         <h1 class="title">Saborea la dicha en cada bocado</h1>
         <p class="slogan">Experimente hamburguesas gourmet elaboradas con pasión.</p>
-        <a class="btn btn-primary" routerLink="/sell">Ordenar Ahora</a>
     </div>
 </section>
 <section class="section">
@@ -10,10 +9,13 @@
       <h2>Hamburguesas populares</h2>
       <div class="burger-grid">
         <div class="burger-card" *ngFor="let burger of burgers">
-          <img [src]="burger.image" [alt]="burger.name">
-          <h3>{{burger.name}}</h3>
-          <p>{{burger.description}}</p>
-          <span class="price">S/{{burger.price}}</span>
+          <div>
+            <img [src]="burger.image" [alt]="burger.name">
+            <h3>{{burger.name}}</h3>
+            <p>{{burger.description}}</p>
+            <span class="price">S/{{burger.price}}</span>
+          </div>
+          <button class="button">Añadir al carrito</button>
         </div>
       </div>
     </div>

@@ -1,85 +1,32 @@
 <div class="sales-container">
-    <div class="controls">
-      <div class="search-bar">
-        <input 
-          type="text" 
-          [(ngModel)]="searchTerm" 
-          (input)="filterSales()"
-          placeholder="Search by burger name, customer..."
-        >
-      </div>
-      
-      <div class="date-filters">
-        <select [(ngModel)]="selectedDateRange" (change)="filterByDate()">
-          <option value="today">Today</option>
-          <option value="week">Last 7 Days</option>
-          <option value="month">This Month</option>
-          <option value="custom">Custom Range</option>
-        </select>
-        
-        @if (selectedDateRange === 'custom') {
-          <div class="custom-date">
-            <input 
-              type="date" 
-              [(ngModel)]="startDate" 
-              (change)="filterSales()"
-            >
-            <input 
-              type="date" 
-              [(ngModel)]="endDate" 
-              (change)="filterSales()"
-            >
-          </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio Total</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sale of displayedSales; track sale.id) {
+        <tr>
+          <td>{{sale.id}}</td>
+          <td>{{sale.burgerName}}</td>
+          <td>{{sale.quantity}}</td>
+          <td>${{sale.totalPrice.toFixed(2)}}</td>
+          <td>{{sale.date | date:'medium'}}</td>
+          <td>{{sale.customer || 'N/A'}}</td>
+          <td>{{sale.paymentMethod}}</td>
+        </tr>
         }
-      </div>
-
-      <button class="export-btn" (click)="exportToCsv()">
-        Export to CSV
-      </button>
-    </div>
-
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Precio Total</th>
-            <th>Fecha</th>
-            <th>Cliente</th>
-            <th>Pago</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (sale of displayedSales; track sale.id) {
-            <tr>
-              <td>{{sale.id}}</td>
-              <td>{{sale.burgerName}}</td>
-              <td>{{sale.quantity}}</td>
-              <td>${{sale.totalPrice.toFixed(2)}}</td>
-              <td>{{sale.date | date:'medium'}}</td>
-              <td>{{sale.customer || 'N/A'}}</td>
-              <td>{{sale.paymentMethod}}</td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-
-    <div class="pagination">
-      <button 
-        [disabled]="currentPage === 1" 
-        (click)="changePage(currentPage - 1)"
-      >
-        Previous
-      </button>
-      <span>Page {{currentPage}} of {{totalPages}}</span>
-      <button 
-        [disabled]="currentPage === totalPages" 
-        (click)="changePage(currentPage + 1)"
-      >
-        Next
-      </button>
-    </div>
+      </tbody>
+    </table>
   </div>
+  
+
+</div>

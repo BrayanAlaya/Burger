@@ -13,17 +13,18 @@ export class SliderComponent {
   isCollapsed = true;
   activeItem = 'view';
 
+  touched = false
+
   menuItems = [
+    { id: 'admin', icon: '🏠', label: 'Crear', path: "/dash"},
     { id: 'create', icon: '➕', label: 'Crear', path: "/dash/create"},
     { id: 'list', icon: '🍔', label: 'Lista', path: "/dash/list" },
-    { id: 'sales', icon: '📊', label: 'Ventas', path: "/dash/sales"}
+    { id: 'sales', icon: '📊', label: 'Ventas', path: "/dash/sales"},
   ];
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
+    this.touched = true;
   }
 
-  setActiveItem(id: string) {
-    this.activeItem = id;
-  }
 }

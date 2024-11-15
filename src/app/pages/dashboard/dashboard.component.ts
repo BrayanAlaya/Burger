@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   imports: [SliderComponent, RouterOutlet]
 })
 export class DashboardComponent {
-
+  
 }
