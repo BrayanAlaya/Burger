@@ -37,9 +37,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let order of recentOrders">
-                            <td>#{{order.id}}</td>
+                            <td>{{order.id}}</td>
                             <td>{{order.items}}</td>
-                            <td>${{order.total}}</td>
+                            <td>S/{{order.total}}</td>
                             <td><span [class]="'status ' + order.status.toLowerCase()">
                                     {{order.status}}
                                 </span></td>

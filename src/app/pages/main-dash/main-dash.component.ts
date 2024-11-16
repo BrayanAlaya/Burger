@@ -10,10 +10,10 @@ import { Component } from '@angular/core';
 })
 export class MainDashComponent {
   recentOrders = [
-    { id: '1234', items: '2x Classic Bliss', total: 25.98, status: 'Completed' },
-    { id: '1235', items: '1x Truffle Paradise', total: 15.99, status: 'Pending' },
-    { id: '1236', items: '3x Veggie Delight', total: 41.97, status: 'Completed' },
-    { id: '1237', items: '1x Classic Bliss', total: 12.99, status: 'Pending' }
+    { id: 'S004', items: '2x Classic Bliss', total: 25.98, status: 'Completed' },
+    { id: 'S004', items: '1x Truffle Paradise', total: 15.99, status: 'Pending' },
+    { id: 'S004', items: '3x Veggie Delight', total: 41.97, status: 'Completed' },
+    { id: 'S004', items: '1x Classic Bliss', total: 12.99, status: 'Pending' }
   ];
 
   popularItems = [
