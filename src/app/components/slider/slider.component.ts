@@ -16,7 +16,7 @@ export class SliderComponent {
   touched = false
 
   menuItems = [
-    { id: 'admin', icon: '🏠', label: 'Crear', path: "/dash"},
+    { id: 'admin', icon: '🏠', label: 'Inicio', path: "/dash"},
     { id: 'create', icon: '➕', label: 'Crear', path: "/dash/create"},
     { id: 'list', icon: '🍔', label: 'Lista', path: "/dash/list" },
     { id: 'sales', icon: '📊', label: 'Ventas', path: "/dash/sales"},

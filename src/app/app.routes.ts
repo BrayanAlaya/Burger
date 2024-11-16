@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserDashComponent } from './pages/user-dash/user-dash.component';
 import { userRoutes } from './pages/user-dash/user.routes';
+import { PassRecoverComponent } from './pages/pass-recover/pass-recover.component';
 
 export const routes: Routes = [
     {path: "", component: HomeComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
     {path: "pay", component: PayComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
+    {path: "password-recover", component: PassRecoverComponent},
 ];

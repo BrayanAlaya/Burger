@@ -4,16 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-pass-recover',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './pass-recover.component.html',
+  styleUrl: './pass-recover.component.scss'
 })
-export class LoginComponent {
+export class PassRecoverComponent {
   loginData = {
     username: '',
     password: '',
+    password2: '',
     rememberMe: false
   };
 
