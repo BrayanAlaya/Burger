@@ -15,6 +15,9 @@
 .burger-card {
     background: var(--card-background);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
